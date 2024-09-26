@@ -15,9 +15,16 @@ const FinancialIncome = database.sequelize.define('Incomes', {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  date: {
+  createdAt: {
     type: DataTypes.DATE,
     allowNull: false,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  deletedAt: {
+    type: DataTypes.DATE,
   },
   userId: {
     type: DataTypes.INTEGER,
@@ -29,6 +36,7 @@ const FinancialIncome = database.sequelize.define('Incomes', {
   },
 }, {
   timestamps: true,
+  paranoid: true,
   tableName: 'incomes', 
 });
 

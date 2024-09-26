@@ -1,10 +1,14 @@
 const express = require("express");
 database = require("./config/database.js")
 const usersRoutes = require("./routes/usersRoutes.js")
+const authenticationRoutes = require("./routes/authenticationRoutes.js")
+const incomeRoutes = require("./routes/incomeRoutes.js")
 const cors = require("cors");
 const app = express();
 const PORT = 3000;
+const dotenv = require('dotenv')
 
+dotenv.config()
 app.use(express.json());
 
 app.use(
@@ -13,7 +17,10 @@ app.use(
   })
 );
 
-app.use("/user", usersRoutes);
+app.use("/api/user", usersRoutes);
+app.use("/api/auth", authenticationRoutes);
+app.use("/api/income", incomeRoutes);
+
 
 database.initializeDatabase().then(() => {
   app.listen(PORT, () => {
