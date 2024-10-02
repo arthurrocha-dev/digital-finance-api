@@ -14,6 +14,10 @@ const Expenses = database.sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
