@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const database = require("../config/database");
 
-const Expenses = database.sequelize.define(
+const Category = database.sequelize.define(
   "Category",
   {
     id: {
@@ -9,6 +9,13 @@ const Expenses = database.sequelize.define(
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    deletedAt: {
+      type: DataTypes.DATE,
     },
   },
   {

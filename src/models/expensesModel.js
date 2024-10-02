@@ -37,6 +37,13 @@ const Expenses = database.sequelize.define(
       },
       onDelete: "CASCADE",
     },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "categories",
+        key: "id",
+      },
+    },
   },
   {
     timestamps: true,
